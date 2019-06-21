@@ -1,0 +1,229 @@
+.bg-mattBlackLight {
+  background-color: #303337;
+}
+
+.text-mattBlackLight {
+  color: #303337;
+}
+
+.bg-mattBlackDark, .nav-link:hover, .nav-link.active {
+  background-color: #212121;
+}
+
+.text-mattBlackDark, body {
+  color: #212121;
+}
+
+.bg-mattWhite {
+  background-color: #ffffff;
+}
+
+.text-mattWhite, .nav-link .icon, .nav-link .text {
+  color: #ffffff;
+}
+
+.bg-mattGray {
+  background-color: #878d8d;
+}
+
+.text-mattGray {
+  color: #878d8d;
+}
+
+.bg-mattGrayLight, body {
+  background-color: #f7f7f7;
+}
+
+.text-mattGrayLight {
+  color: #f7f7f7;
+}
+
+.bg-mattRed {
+  background-color: #ec6271;
+}
+
+.text-mattRed, .nav-link:hover .icon, .nav-link:hover .text, .nav-link.active .icon, .nav-link.active .text {
+  color: #ec6271;
+}
+
+.wrapper {
+  margin-top: 3.5rem;
+}
+
+.wrapper .sideMenu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: 3.5rem auto auto;
+  width: 12.5rem;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  z-index: 2000;
+}
+
+.wrapper .content {
+  width: 100%;
+  margin-left: 0rem;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+}
+
+.wrapper.active .sideMenu {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+@media (min-width: 992px) {
+  .wrapper .sideMenu {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .wrapper .content {
+    margin-left: 12.5rem;
+  }
+  .wrapper.active .sideMenu {
+    width: 5rem;
+  }
+  .wrapper.active .sideMenu .nav-link {
+    text-align: center;
+  }
+  .wrapper.active .sideMenu .nav-link .icon {
+    margin-right: 0;
+  }
+  .wrapper.active .sideMenu .nav-link .text {
+    display: none;
+  }
+  .wrapper.active .content {
+    margin-left: 5rem;
+  }
+}
+
+.nav-link {
+  display: block;
+  white-space: nowrap;
+}
+
+.nav-link .icon {
+  margin-right: 0.25rem;
+  font-size: 1.875rem;
+  vertical-align: middle;
+  height: 2rem;
+  width: 2rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-link .text {
+  font-size: 0.875rem;
+}
+
+#login-form{
+  width: 29%;
+  height: 50%; /*68%*/
+  border: 2px solid #000;
+  box-shadow: 7px 7px 15px rgba(0,0,0,0.6);
+  border-radius: 15px;
+  margin: 8% auto;
+  padding: 15px;
+  top: 27%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  /*padding: 70px 30px;*/
+}
+
+#change-password-form{
+  width: 27%;
+  height: 65%; /*68%*/
+  border: 2px solid #000;
+  box-shadow: 7px 7px 15px rgba(0,0,0,0.6);
+  border-radius: 15px;
+  margin: 8% auto;
+  padding: 15px;
+  top: 27%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  /*padding: 70px 30px;*/
+}
+
+#friend-login-form{
+  width: 59%;
+  height: 54%; /*68%*/
+  border: 2px solid #000;
+  box-shadow: 7px 7px 15px rgba(0,0,0,0.6);
+  border-radius: 15px;
+  margin: 8% auto;
+  padding: 15px;
+  top: 27%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  /*padding: 70px 30px;*/
+}
+
+.friend-form{
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  position: relative;
+}
+
+.friend-list{
+  height: 100%;
+  border-right: 1px solid #303337;
+  padding: 20px;
+  margin-top: 97px;
+  /* padding: 35px; */
+  /* position: absolute; */
+}
+.friend-proceed{
+  height: 100%;
+  padding: 20px;
+  margin-top: 97px;
+  /* padding: 35px; */
+  /* position: absolute; */
+}
+
+.avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 10;
+  top: -53px;
+  left: calc(50% - 50px);
+}
+
+.login-title{
+  margin: 0;
+  padding: 0 0 20px;
+  margin-top: 35px;
+}
+
+.deeper{
+  color: #000;
+}
+
+.biggi{
+  width: 100%;
+}
+
+#oal{
+  display: none;
+}
+
+/*# sourceMappingURL=main.css.map */
