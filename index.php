@@ -1,256 +1,131 @@
-<?php
-  require_once 'core/init.php';
-  include 'includes/head.php';
-  include 'includes/navbar.php';
+<?php 
+    require_once 'core/init.php';
+    include 'includes/head.php';
 
+    $fname = ((isset($_POST['fname']) && $_POST['fname'] != '' )?sanitize($_POST['fname']):'');
+    $lname = ((isset($_POST['lname']) && $_POST['lname'] != '' )?sanitize($_POST['lname']):'');
+    $birthday = ((isset($_POST['birthday']) && $_POST['birthday'] != '' )?sanitize($_POST['birthday']):'');
+    $gender = ((isset($_POST['gender']) && $_POST['gender'] != '' )?sanitize($_POST['gender']):'');
+    $occupation = ((isset($_POST['occupation']) && $_POST['occupation'] != '' )?sanitize($_POST['occupation']):'');
+    $married = ((isset($_POST['married']) && $_POST['married'] != '' )?sanitize($_POST['married']):'');
+    $noc = ((isset($_POST['noc']) && $_POST['noc'] != '' )?sanitize($_POST['noc']):'');
+    $email = ((isset($_POST['email']) && $_POST['email'] != '' )?sanitize($_POST['email']):'');
+    $phone = ((isset($_POST['phone']) && $_POST['phone'] != '' )?sanitize($_POST['phone']):'');
+    $uname = ((isset($_POST['uname']) && $_POST['uname'] != '' )?sanitize($_POST['uname']):'');
+    $password = ((isset($_POST['password']) && $_POST['password'] != '' )?sanitize($_POST['password']):'');
+
+    $fname_error = $lname_error = $bday_error = $gender_error = $occ_error = $married_error = $noc_error = $email_error = $phone_error = $uname_error = $password_error = "";
+
+    include 'formProcessing/registerFormSubmitted.php';
+?>
+    <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-3">
+                <div class="card-heading"></div>
+                <div class="card-body">
+                    <h2 class="title">Registration Info</h2>
+                    <form method="POST">
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="First Name" name="fname" value="<?= $fname; ?>">
+                        </div>
+                        <div class="text-danger">
+                            <?= $fname_error; ?>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Last Name" name="lname" value="<?= $lname; ?>">
+                        </div>
+                        <div class="text-danger">
+                            <?= $lname_error; ?>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthday" value="<?= $birthday; ?>">
+                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                        </div>
+                        <div class="text-danger">
+                            <?= $bday_error; ?>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="gender" value="<?= $gender; ?>">
+                                    <option disabled="disabled" selected="selected">Gender</option>
+                                    <option value="M" <?= (($gender == "M")?' selected':''); ?>>Male</option>
+                                    <option value="F" <?= (($gender == "F")?' selected':''); ?>>Female</option>
+                                    <option value="O" <?= (($gender == "O")?' selected':''); ?>>Other</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="text-danger">
+                            <?= $gender_error; ?>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Occupation" name="occupation" value="<?= $occupation; ?>">
+                        </div>
+                        <div class="text-danger">
+                            <?= $occ_error; ?>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="married" value="<?= $married; ?>">
+                                    <option disabled="disabled" selected="selected">Marrital Status</option>
+                                    <option value="1" <?= (($married == "1")?' selected':''); ?>>Married</option>
+                                    <option value="0" <?= (($married == "0")?' selected':''); ?>>Single</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="text-danger">
+                            <?= $married_error; ?>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="number" placeholder="No. of Children" name="noc" value="<?= $noc; ?>" min="0">
+                        </div>
+                        <div class="text-danger">
+                            <?= $noc_error; ?>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="email" placeholder="Email" name="email" value="<?= $email; ?>">
+                        </div>
+                        <div class="text-danger">
+                            <?= $email_error; ?>
+                        </div>
+                        <div class="input-group">
+                            <input class="input--style-3" type="tel" placeholder="Phone Number" name="phone" value="<?= $phone; ?>">
+                        </div>
+                        <div class="text-danger">
+                            <?= $phone_error; ?>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="username" name="uname" value="<?= $uname; ?>">
+                        </div>
+                        <div class="text-danger">
+                            <?= $uname_error; ?>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="password" placeholder="Password" name="password" value="<?= $password; ?>">
+                        </div>
+                        <div class="text-danger">
+                            <?= $password_error; ?>
+                        </div>
+
+                        <div class="p-t-10">
+                            <button class="btn btn--pill btn--green" type="submit">Register</button>
+                            <a href="/will/tunde will/"><h5 class="float-right mt-5 little">Sign In -></h5></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php 
+    include 'includes/footer.php';
 
 ?>
-
-    
-      <!--==========================
-        Hero Section
-      ============================-->
-      <section id="hero">
-        <div class="hero-container">
-          <h1>Welcome to Solaris</h1>
-          <h2>We are team of talented designers making websites and web Applications for consumer use</h2>
-          <a href="#about" class="btn-get-started">Get Started</a>
-        </div>
-      </section><!-- #hero -->
-    
-      <main id="main">
-    
-        <!--==========================
-          About Us Section
-        ============================-->
-        <section id="about">
-          <div class="container">
-            <div class="row about-container">
-    
-              <div class="col-lg-6 content order-lg-1 order-2">
-                <h2 class="title">Few Words About Us</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-    
-                <div class="icon-box wow fadeInUp">
-                  <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-                  <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                  <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-                </div>
-    
-                <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-                  <div class="icon"><i class="fa fa-photo"></i></div>
-                  <h4 class="title"><a href="">Magni Dolores</a></h4>
-                  <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                </div>
-    
-                <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-                  <div class="icon"><i class="fa fa-bar-chart"></i></div>
-                  <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                  <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-                </div>
-    
-              </div>
-    
-              <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
-            </div>
-    
-          </div>
-        </section><!-- #about -->
-    
-        <!--==========================
-          Facts Section
-        ============================-->
-        <section id="facts">
-          <div class="container wow fadeIn">
-            <div class="section-header">
-              <h3 class="section-title">Facts</h3>
-              <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-            </div>
-            <div class="row counters">
-    
-                      <div class="col-lg-3 col-6 text-center">
-                <span data-toggle="counter-up">5</span>
-                <p>Clients</p>
-                      </div>
-    
-              <div class="col-lg-3 col-6 text-center">
-                <span data-toggle="counter-up">13</span>
-                <p>Projects</p>
-                      </div>
-    
-              <div class="col-lg-3 col-6 text-center">
-                <span data-toggle="counter-up">6</span>
-                <p>Hours Of Support</p>
-                      </div>
-    
-              <div class="col-lg-3 col-6 text-center">
-                <span data-toggle="counter-up">2</span>
-                <p>Hard Workers</p>
-                      </div>
-    
-                  </div>
-    
-          </div>
-        </section><!-- #facts -->
-    
-        
-    
-        <!--==========================
-          Portfolio Section
-        ============================-->
-        <!-- <section id="portfolio">
-          <div class="container wow fadeInUp">
-            <div class="section-header">
-              <h3 class="section-title">Portfolio</h3>
-              <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-            </div>
-            <div class="row">
-    
-              <div class="col-lg-12">
-                <ul id="portfolio-flters">
-                  <li data-filter=".filter-app, .filter-card, .filter-logo, .filter-web" class="filter-active">All</li>
-                  <li data-filter=".filter-app">App</li>
-                  <li data-filter=".filter-card">Card</li>
-                  <li data-filter=".filter-logo">Logo</li>
-                  <li data-filter=".filter-web">Web</li>
-                </ul>
-              </div>
-            </div>
-    
-            <div class="row" id="portfolio-wrapper">
-              <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-                <a href="">
-                  <img src="img/portfolio/app1.jpg" alt="">
-                  <div class="details">
-                    <h4>App 1</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-                <a href="">
-                  <img src="img/portfolio/web2.jpg" alt="">
-                  <div class="details">
-                    <h4>Web 2</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-                <a href="">
-                  <img src="img/portfolio/app3.jpg" alt="">
-                  <div class="details">
-                    <h4>App 3</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-                <a href="">
-                  <img src="img/portfolio/card1.jpg" alt="">
-                  <div class="details">
-                    <h4>Card 1</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-                <a href="">
-                  <img src="img/portfolio/card2.jpg" alt="">
-                  <div class="details">
-                    <h4>Card 2</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-                <a href="">
-                  <img src="img/portfolio/web3.jpg" alt="">
-                  <div class="details">
-                    <h4>Web 3</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-card">
-                <a href="">
-                  <img src="img/portfolio/card3.jpg" alt="">
-                  <div class="details">
-                    <h4>Card 3</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-app">
-                <a href="">
-                  <img src="img/portfolio/app2.jpg" alt="">
-                  <div class="details">
-                    <h4>App 2</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-                <a href="">
-                  <img src="img/portfolio/logo1.jpg" alt="">
-                  <div class="details">
-                    <h4>Logo 1</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-                <a href="">
-                  <img src="img/portfolio/logo3.jpg" alt="">
-                  <div class="details">
-                    <h4>Logo 3</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-web">
-                <a href="">
-                  <img src="img/portfolio/web1.jpg" alt="">
-                  <div class="details">
-                    <h4>Web 1</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-              <div class="col-lg-3 col-md-6 portfolio-item filter-logo">
-                <a href="">
-                  <img src="img/portfolio/logo2.jpg" alt="">
-                  <div class="details">
-                    <h4>Logo 2</h4>
-                    <span>Alored dono par</span>
-                  </div>
-                </a>
-              </div>
-    
-            </div>
-    
-          </div>
-        </section>#portfolio -->
-    
-        
-    
- <?php
-      include 'includes/services.php';
-      include 'includes/team.php';
-      include 'includes/contact.php';
-      include 'includes/footer.php';
- 
- ?>

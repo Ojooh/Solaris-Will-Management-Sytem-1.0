@@ -17,7 +17,7 @@
                             Welcome <?= ((isset($_SESSION['SLOwner']) && $_SESSION['SLOwner'] != '')?$user_data['username']: $user_name); ?>
                         </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="profile.php">Profile</a>
                                 <a class="dropdown-item" href="change_password.php">Change Password</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="logout.php">Log Out</a>

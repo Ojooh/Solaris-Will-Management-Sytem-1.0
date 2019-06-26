@@ -36,7 +36,7 @@
             $iname = ((isset($_POST['iname']) && $_POST['iname'] != '' )?sanitize($_POST['iname']):$entryEdit['item_name']);
             $asset_cat = ((isset($_POST['asset_cat']) && $_POST['asset_cat'] != '' )?sanitize($_POST['asset_cat']):$entryEdit['asset_cat']);
             $currency = ((isset($_POST['currency']) && $_POST['currency'] != '' )?sanitize($_POST['currency']):$entryEdit['currency']);
-            $value = ((isset($_POST['value']) && $_POST['value'] != '' )?sanitize($_POST['value'])):(($entryEdit['edited_value'] == 0)?$entryEdit['initial_value']:$entryEdit['edited_value']));
+            $value = ((isset($_POST['value']) && $_POST['value'] != '' )?sanitize($_POST['value']):(($entryEdit['edited_value'] == 0)?$entryEdit['initial_value']:$entryEdit['edited_value']));
             $dollars = ((isset($_POST['dollars']) && $_POST['dollars'] != '' )?sanitize($_POST['dollars']):$entryEdit['dollars']);
             $description = ((isset($_POST['description']) && $_POST['description'] != '' )?sanitize($_POST['description']):$entryEdit['description']);
         }
@@ -206,7 +206,7 @@
                                                     <td><?= money("$", $ent['dollars']); ?></td>
                                                     <td><?= (($ent['beneficiary'] == 0)?'None':$bd['fname']); ?></td>
                                                     <td><?= pretty_date($ent['entry_date']); ?></td>
-                                                    <td><?= (($entry['edit_date'] == '0000-00-00 00:00:00')?'Never':pretty_date($entry['edit_date'])); ?></td>
+                                                    <td><?= (($ent['edit_date'] == '0000-00-00 00:00:00')?'Never':pretty_date($ent['edit_date'])); ?></td>
                                                     <td>
                                                         <a href="entry.php?edit=<?= $ent['id']; ?>" class="btn btn-xs btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
                                                         <a href="entry.php?delete=<?= $ent['id']; ?>" class="btn btn-xs btn-outline-primary"><i class="fas fa-trash-alt"></i></a>

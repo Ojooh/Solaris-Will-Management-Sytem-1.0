@@ -10,7 +10,7 @@
     //fetch query
     $lead_user = $user_data['id'];
     $benificiaryQuery = $db->query("SELECT * FROM users WHERE `deleted` = 0 AND `parent_user` = '{$lead_user}' ORDER BY `fname` ");
-    $estatesQuery = $db->query("SELECT * FROM assets WHERE `deleted` = 0 AND `beneficiary` = 0 ORDER BY `item_name` ");
+    $estatesQuery = $db->query("SELECT * FROM assets WHERE `deleted` = 0 AND `beneficiary` = 0 AND `user_id` = '{$lead_user}' ORDER BY `item_name` ");
     $sql = "SELECT assets.id, assets.beneficiary, users.fname, users.lname, SUM(assets.dollars) AS total, COUNT(*) AS list 
             FROM assets INNER JOIN users ON assets.beneficiary = users.id WHERE assets.deleted != 1 AND assets.beneficiary != 0 GROUP BY beneficiary";
     $distributionQuery = $db->query($sql);
