@@ -15,35 +15,41 @@
 
         if(empty($_POST['fname'])){
             $fname_error = "This field is Required.";
-        }
-        if(empty($_POST['lname'])){
-            $lname_error = "This field is Required.";
-        }
-        if(empty($_POST['email'])){
-            $email_error = "This field is Required.";
-        }
-        if(empty($_POST['relations'])){
-            $relations_error = "This field is Required.";
         }else{
             if(!preg_match("/^[a-zA-Z]+$/i", $_POST['fname'])){
                 $fname_error = "Only Letters Allowed.";
             }
+        }
+        if(empty($_POST['lname'])){
+            $lname_error = "This field is Required.";
+        }else{
             if(!preg_match("/^[a-zA-Z -]+$/i", $_POST['lname'])){
                 $lname_error = "Only Letters, Whitespace and hyphens Allowed.";
             }
+        }
+        if(empty($_POST['email'])){
+            $email_error = "This field is Required.";
+        }else{
             if(!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/i", $_POST['email'])){
                 $email_error = "Only Letters, Whitespace and hyphens Allowed.";
             }
-            if(!preg_match("/\+?([0-9]{2})-?([0-9]{3})-?([0-9]{6,7})$/i", $_POST['number'])){
-                $number_error = "please start phone number with country code";
-            }
-            if($count > 0){
-                $relGen_error = "<div class='alert alert-success' role='alert'>Beneficiary Details exist already in our Database.</div>";
+        }
+        if(empty($_POST['relations'])){
+            $relations_error = "This field is Required.";
+        }
+        if(empty($_POST['number'])){
+            $number_error = "";
+        }else{
+            if(!preg_match("/^\+?\d+$/", $_POST['number'])){
+                $number_error = "Only numbers And plus Allowed.";
             }
             if(strlen($number) < 11){
                 $number_error = "Phone number entered invalid";
-            }      
-        }
+            }  
+        }   
+        if($count > 0){
+            $relGen_error = "<div class='alert alert-success' role='alert'>Beneficiary Details exist already in our Database.</div>";
+        }    
         if($fname_error == "" && $lname_error == "" && $email_error == "" && $number_error == "" && $relations_error == "" && $relGen_error == ""){
             $fname = ucwords($_POST['fname']);
             $lname = ucwords($_POST['lname']);

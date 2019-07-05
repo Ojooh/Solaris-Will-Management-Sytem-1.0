@@ -212,8 +212,8 @@
                                                 <th scope="col">Asset Value</th>
                                                 <th scope="col">Dollar Value</th>
                                                 <th scope="col">Date Details</th>
-                                                <th scope="col">Removed</th>
                                             <?= (($user_data1['permission'] == "S")?
+                                                '<th scope="col">Removed</th>'.
                                                 '<th scope="col">Edit/Delete</th>'
                                                     :
                                                 '');
@@ -232,40 +232,44 @@
                                              ?>
                                                 <tr>
                                                     <th scope="row"><?= $b; ?></th>
+                                                    
                                                     <td><?= $ents['asset_no']; ?></td>
+
                                                     <td><?= $ents['item_name']; ?></td>
+
                                                     <td><?= $bd['lname']." ". $bd['fname']; ?></td>
+
                                                     <td><?= money($cu['symbol'], (($ents['edited_value'] == 0)?$ents['initial_value']:$ents['edited_value'])); ?></td>
+
                                                     <td><?= money("$", $ents['dollars']); ?></td>
+
                                                     <td>
                                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal" data-details="<?= $date_details; ?>" data-heading="Date Details">
                                                                 Details
                                                         </button>
                                                     </td>
+
+                                                <?php if($user_data1['permission'] == "S"): ?>
                                                     <td>     
-                                                <?= (($ents['deleted'] == 0)?
-                                                            '<div class="custom-control custom-switch">
-                                                                <input type="checkbox" class="custom-control-input" id="customSwitch'.$ents['id'].'" value="'.$date_details.'-1" onchange="deleteFunction(this.value)" checked> 
-                                                                <label class="custom-control-label" for="customSwitch'.$ents['id'].'">Still Active</label>
-                                                            </div>'
-                                                            :
-                                                            '<div class="custom-control custom-switch">
-                                                                <input type="checkbox" class="custom-control-input" id="customSwitch'.$ents['id']. '" value="'.$date_details.'-0" onchange="deleteFunction(this.value)" >  
-                                                                <label class="custom-control-label" for="customSwitch'.$ents['id'].'">Not Acitve</label>
-                                                                
-                                                            </div>');
-                                                ?>
-                                                        
+                                                    <?= (($ents['deleted'] == 0)?
+                                                        '<div class="custom-control custom-switch">
+                                                            <input type="checkbox" class="custom-control-input" id="customSwitch'.$ents['id'].'" value="'.$date_details.'-1" onchange="deleteFunction(this.value)" checked> 
+                                                            <label class="custom-control-label" for="customSwitch'.$ents['id'].'">Still Active</label>
+                                                        </div>'
+                                                        :
+                                                        '<div class="custom-control custom-switch">
+                                                            <input type="checkbox" class="custom-control-input" id="customSwitch'.$ents['id']. '" value="'.$date_details.'-0" onchange="deleteFunction(this.value)" >  
+                                                            <label class="custom-control-label" for="customSwitch'.$ents['id'].'">Not Acitve</label>
+                                                            
+                                                        </div>');
+                                                    ?>   
                                                     </td>
-                                                <?= (($user_data1['permission'] == "S")?
-                                                    '<td>
-                                                        <a href="entry.php?edit='.$ents['id'].'" class="btn btn-xs btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
-                                                        <a href="entry.php?delete='.$ents['id'].'" class="btn btn-xs btn-outline-primary"><i class="fas fa-trash-alt"></i></a>
-                                                    </td>'
-                                                    :
-                                                    '');
-                                                ?>
-                                                    <? endif; ?>
+
+                                                    <td>
+                                                        <a href="entry.php?edit=<?= $ents['id'];?>" class="btn btn-xs btn-outline-primary"><i class="fas fa-pencil-alt"></i></a>
+                                                        <a href="entry.php?delete=<?= $ents['id'];?>" class="btn btn-xs btn-outline-primary"><i class="fas fa-trash-alt"></i></a>
+                                                    </td>
+                                                    <?php endif; ?>
                                                 </tr>
                                             <?php $b++; endforeach; ?>
 

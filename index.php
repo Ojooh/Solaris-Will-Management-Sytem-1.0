@@ -71,8 +71,8 @@
                             <div class="rs-select2 js-select-simple select--no-search">
                                 <select name="married" value="<?= $married; ?>">
                                     <option disabled="disabled" selected="selected">Marrital Status</option>
-                                    <option value="1" <?= (($married == "1")?' selected':''); ?>>Married</option>
-                                    <option value="0" <?= (($married == "0")?' selected':''); ?>>Single</option>
+                                    <option value="M" <?= (($married == "M")?' selected':''); ?>>Married</option>
+                                    <option value="S" <?= (($married == "S")?' selected':''); ?>>Single</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>

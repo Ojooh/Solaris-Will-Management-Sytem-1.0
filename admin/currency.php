@@ -8,7 +8,7 @@
     include 'includes/sidebar.php';
 
     //fetch query
-    $currencyQuery = $db->query("SELECT * FROM currency ORDER BY currency ");
+    $currencyQuery = $db->query("SELECT * FROM currency ORDER BY `currency` ");
     $currences = mysqli_fetch_assoc($currencyQuery);
 
     $currency_name_error = $currency_error = $symbol_error = $rate_error =  $currGen_error = "";
@@ -16,24 +16,24 @@
     if(isset($_GET['delete']) && !empty($_GET['delete'])){
         $delete_id = (int)$_GET['delete'];
         $delete_id = sanitize($delete_id);
-        $db->query("DELETE FROM currency WHERE id = '$delete_id'");
+        $db->query("DELETE FROM currency WHERE `id` = '$delete_id'");
         echo '<script>location.replace("currency.php");</script>';
     }
     elseif(isset($_GET['edit']) && !empty($_GET['edit'])){   
         $edit_id = (int)$_GET['edit'];
         $edit_id = sanitize($edit_id);
-        $currencyEditQuery = $db->query("SELECT * FROM currency WHERE id = '{$edit_id}'");
+        $currencyEditQuery = $db->query("SELECT * FROM currency WHERE `id` = '{$edit_id}'");
         $currencyEdit = mysqli_fetch_assoc($currencyEditQuery);
-        $currency_name = $currencyEdit['currency_name'];
-        $currency = $currencyEdit['currency'];
-        $symbol = $currencyEdit['symbol'];
-        $rate = $currencyEdit['convert_rate'];
+        $currency_name = ((isset($_POST['currency_name']) && $_POST['currency_name'] != '')?sanitize($_POST['currency_name']): $currencyEdit['currency_name']);
+        $currency = ((isset($_POST['currency']) && $_POST['currency'] != '')?sanitize($_POST['currency']): $currencyEdit['currency']);
+        $symbol = ((isset($_POST['symbol']) && $_POST['symbol'] != '')?sanitize($_POST['symbol']): $currencyEdit['symbol']);
+        $rate = ((isset($_POST['rate ']) && $_POST['rate '] != '')?sanitize($_POST['rate ']): $currencyEdit['convert_rate']);
     }
     else{
-        $currency_name = "";
-        $currency = "";
-        $symbol = "";
-        $rate = "";
+        $currency_name = ((isset($_POST['currency_name']) && $_POST['currency_name'] != '')?sanitize($_POST['currency_name']): "");
+        $currency = ((isset($_POST['currency']) && $_POST['currency'] != '')?sanitize($_POST['currency']): "");
+        $symbol = ((isset($_POST['symbol']) && $_POST['symbol'] != '')?sanitize($_POST['symbol']): "");
+        $rate = ((isset($_POST['rate ']) && $_POST['rate '] != '')?sanitize($_POST['rate ']): "");
     }
 
     include 'formProcessing/currencyFormSubmitted.php';

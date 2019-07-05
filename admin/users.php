@@ -44,7 +44,11 @@
                                                 <th scope="col">Details</th>
                                                 <th scope="col">Net Worth</th>
                                                 <th scope="col">Relations</th>
-                                                <th scope="col">Removed</th>
+                                            <?= (($user_data1['permission'] == "S")?
+                                                '<th scope="col">Removed</th>'
+                                                    :
+                                                '');
+                                            ?>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -64,13 +68,16 @@
                                                         </button>
                                                     </td>
                                                     <td><?= money("$", $own['net_worth']); ?></td>
+
                                                     <td>
                                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal" data-details="<?= $relatives_details; ?>" data-heading="<?= $own['lname']." ". $own['fname']; ?> Relatives">
                                                                 Relations
                                                         </button>
                                                     </td>
+
+                                                    <?php if($user_data1['permission'] == "S"): ?>
                                                     <td>     
-                                                <?= (($own['deleted'] == 0)?
+                                                        <?= (($own['deleted'] == 0)?
                                                             '<div class="custom-control custom-switch">
                                                                 <input type="checkbox" class="custom-control-input" id="customSwitch'.$own['id'].'" value="'.$relatives_details.'-1" onchange="deleteFunction(this.value)" checked> 
                                                                 <label class="custom-control-label" for="customSwitch'.$own['id'].'">Still Active</label>
@@ -81,10 +88,10 @@
                                                                 <label class="custom-control-label" for="customSwitch'.$own['id'].'">Not Acitve</label>
                                                                 
                                                             </div>');
-                                                ?>
+                                                        ?>
                                                         
                                                     </td>
-                                                    <? endif; ?>
+                                                    <?php endif; ?>
                                                 </tr>
                                             <?php $b++; endforeach; ?>
 

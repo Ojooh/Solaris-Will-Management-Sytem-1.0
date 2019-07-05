@@ -208,6 +208,18 @@
   left: calc(50% - 50px);
 }
 
+.avatar2{
+  width: 200px;
+  height: 200px;
+  border-radius: 90%;
+  margin-top: 15%;
+  background: #ffffff;
+  /* position: absolute;
+  /* z-index: 10;
+  top: -40px;
+  left: calc(50% - 50px); */ */
+}
+
 .login-title{
   margin: 0;
   padding: 0 0 20px;
@@ -224,6 +236,14 @@
 
 #oal{
   display: none;
+}
+
+.noa {
+  font-size: 100px;
+}
+
+.mb-9{
+  margin-bottom: 60px;
 }
 
 /*# sourceMappingURL=main.css.map */

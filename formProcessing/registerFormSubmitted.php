@@ -45,7 +45,7 @@
         if(empty($_POST['phone'])){
             $phone_error = "This field is Required.";
         }else{
-            if(!preg_match("/^234[0-9]{11}/", $_POST['phone'])){
+            if(!preg_match("/^\+(?:[0-9] ?){6,14}[0-9]$/", $_POST['phone'])){
                 $phone_error = "Only numbers And plus Allowed.";
             }
         }
@@ -61,7 +61,11 @@
         }
         if(empty($_POST['password'])){
             $password_error = "This field is Required.";
-        }     
+        }else{
+            if(strlen($_POST['password']) <= 5){
+                $password_error = "Password to small";
+            }
+        }    
         if(!preg_match("/\A[\w .,!()`,-]+\z/", $_POST['occupation'])){
                 $occ_error = "Only Letters, Brackets, Comma, HyphenAnd WhiteSpace Allowed.";
         }

@@ -47,6 +47,10 @@ $(".toggle-password").click(function() {
     var modal = $(this);
 });
 
+$('.custom-file-input').on('change', function() { 
+  let fileName = $(this).val().split('\\').pop(); 
+  $(this).next('.custom-file-label').addClass("selected").html(fileName); 
+});
 
   function stateFunction(val) {
       if(val == "alive"){
@@ -91,7 +95,7 @@ $(".toggle-password").click(function() {
       jQuery('#login-errors').html(error);
       return;
     }
-    else if(pass.length < 6){
+    else if(pass.length <= 5){
       error += '<p class="text-center alert alert-success">Password to small.</p>';
       jQuery('#login-errors').html(error);
       return;
@@ -186,3 +190,4 @@ $(".toggle-password").click(function() {
         },
       });
     }
+

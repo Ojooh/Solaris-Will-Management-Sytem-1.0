@@ -3,7 +3,7 @@ require_once '../core/init.php';
     $uname = sanitize($_POST['username']);
     $password = sanitize($_POST['password']);
 
-    $authQuery = $db->query("SELECT * FROM users WHERE `username` = '{$uname}' AND `deleted` = 0");
+    $authQuery = $db->query("SELECT * FROM users WHERE `username` = '{$uname}'");
     $user = mysqli_fetch_assoc($authQuery);
     $userCount = mysqli_num_rows($authQuery);
     if($userCount < 1){
@@ -24,7 +24,7 @@ require_once '../core/init.php';
     if($user['permission'] == "O") {
         $name = $user['id'];
         $stateQuery = $db->query("SELECT * FROM owners WHERE `name` = '{$name}' AND `deleted` = 0");
-        $ownerCount = mysqli_num_rows($authQuery);
+        $ownerCount = mysqli_num_rows($stateQuery);
         if($ownerCount < 1){
             $error = 'Invalid Username and Password';
             echo $error;
@@ -41,10 +41,10 @@ require_once '../core/init.php';
     }
     if($user['permission'] == "F") {
       $name = $user['id'];
-      $stateQuery = $db->query("SELECT * FROM owners WHERE `name` = '{$name}' AND `deleted` != 0");
-      $ownerCount = mysqli_num_rows($authQuery);
+      $stateQuery = $db->query("SELECT * FROM users WHERE `id` = '{$name}' AND `deleted` != 0");
+      $ownerCount = mysqli_num_rows($stateQuery);
       if($ownerCount < 1){
-          $error = 'Invalid Username and Password';
+          $error = 'Invalid Username and Password from here';
           echo $error;
         }
         else{

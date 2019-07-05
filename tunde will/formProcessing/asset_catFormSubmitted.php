@@ -1,7 +1,7 @@
 <?php
     if(isset($_POST) && !empty($_POST)){
         $category = ucwords($_POST['category']);
-        $catCheckQuery = $db->query("SELECT * FROM asset_category WHERE `category` = '{$category}'"); 
+        $catCheckQuery = $db->query("SELECT * FROM asset_category WHERE `category` = '{$category}' AND `deleted` = 0"); 
         if(isset($_GET['edit'])){
             $catCheckQuery = $db->query("SELECT * FROM asset_category WHERE category = '{$category}' AND `id` != '$edit_id'");
         }

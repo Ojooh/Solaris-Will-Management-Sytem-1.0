@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <button type="submit" class="btn btn-outline-primary biggi">Change</button>
+                            <button type="submit" class="btn btn-primary biggi mb-4">Change</button>
                         </div>
                     </form>      
             </div>    

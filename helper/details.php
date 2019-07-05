@@ -31,8 +31,8 @@ require_once '../core/init.php';
         $get = mysqli_fetch_assoc($getItemsQuery);
         $email = "mailto:".$get['email'];
         $reset = "/will/tunde will/change_password.php?reset=".$get['id'];
-        $mar = (($get['marital_status'] == 0)?"Not Married with ":"Married with ");
-        $kids = (($get['children_no'] == 0)?"No": $get['children_no']);
+        $mar = (($get['marital_status'] == "M")?"Married with ":"Single with ");
+        $kids = (($get['children_no'] == 0)?"No ": $get['children_no']);
         $html = '<div class="row">
                     <div class="col-md-6">
                         <div class="float-left">

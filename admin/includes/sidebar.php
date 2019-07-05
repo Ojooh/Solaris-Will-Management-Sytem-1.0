@@ -10,7 +10,7 @@
                                 <a href="index.php" class="nav-link px-2">
                                     <i class="material-icons icon">
                                         dashboard
-                                    </i><span class="text">Statistics</span>
+                                    </i><span class="text">Dashboard</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -28,17 +28,10 @@
                             </a>
                         </li> 
                         <li class="nav-item">
-                            <a href="#" class="nav-link px-2">
-                                <i class="material-icons icon">
-                                    insert_chart
-                                </i><span class="text">Distribution</span>
-                            </a>
-                        </li> 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link px-2">
-                                <i class="material-icons icon">
-                                    settings
-                                </i><span class="text">Settings</span>
+                            <a href="admin.php" class="nav-link px-2">
+                            <i class="fas fa-user-shield icon">
+
+                            </i><span class="text"> Administrators</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -62,7 +55,7 @@
                          <a href="index.php" class="nav-link px-2">
                              <i class="material-icons icon">
                                  dashboard
-                             </i><span class="text">Statistics</span>
+                             </i><span class="text">Dashboard</span>
                          </a>
                      </li>
                      <li class="nav-item">
@@ -94,10 +87,10 @@
                             </a>
                         </li> 
                         <li class="nav-item">
-                            <a href="#" class="nav-link px-2">
-                                <i class="material-icons icon">
-                                    settings
-                                </i><span class="text">Settings</span>
+                            <a href="admin.php" class="nav-link px-2">
+                            <i class="fas fa-user-shield icon">
+
+                            </i><span class="text"> Administrators</span>
                             </a>
                         </li>
                         <li class="nav-item">

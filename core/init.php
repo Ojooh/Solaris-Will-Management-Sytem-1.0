@@ -9,7 +9,8 @@ if(mysqli_connect_errno())
 }
 //to start session
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'].'/will/helper/helpers.php';
+define('BASEURL', $_SERVER['DOCUMENT_ROOT'].'/will/');
+require_once BASEURL.'helper/helpers.php';
 
 
 if(isset($_SESSION['SLOwner'])){

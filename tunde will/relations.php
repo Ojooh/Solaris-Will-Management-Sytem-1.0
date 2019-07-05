@@ -197,7 +197,7 @@
 
                                             <?php  
                                                     foreach($relationsQuery as $rel):
-                                                        $link = "mailto:".$rel['email']
+                                                        $link = "mailto:".$rel['email'];
                                              ?>
                                                 <tr>
                                                     <th scope="row"><?= $a; ?></th>
